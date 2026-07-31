@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% block title %}Sign in - My Hope Story{% endblock %}
+
+{% block content %}
+<div class="min-h-[85vh] flex">
+    <!-- Left: Form -->
+    <div class="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
+        <div class="mx-auto w-full max-w-sm lg:w-96 animate-fade-in-up">
+            <div>
+                <h2 class="mt-6 text-3xl font-extrabold text-slate-900 tracking-tight">Sign in to your account</h2>
+                <p class="mt-2 text-sm text-slate-500">
+                    Or <a href="{% url 'signup' %}" class="font-medium text-secondary hover:text-blue-700 transition-colors">create a new account</a>
+                </p>
+            </div>
+
+            <div class="mt-8">
+                <form class="space-y-6" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ next }}">
+                    
+                    <div>
+                        <label for="username" class="block text-sm font-medium text-slate-700">Username or Email</label>
+                        <div class="mt-1">
+                            <input id="username" name="username" type="text" required class="appearance-none block w-full px-3 py-2 border border-slate-300 rounded-lg shadow-sm placeholder-slate-400 focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm transition-shadow">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-slate-700">Password</label>
+                        <div class="mt-1">
+                            <input id="password" name="password" type="password" required class="appearance-none block w-full px-3 py-2 border border-slate-300 rounded-lg shadow-sm placeholder-slate-400 focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm transition-shadow">
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 text-secondary focus:ring-secondary border-slate-300 rounded">
+                            <label for="remember-me" class="ml-2 block text-sm text-slate-900">Remember me</label>
+                        </div>
+                        <div class="text-sm">
+                            <a href="#" class="font-medium text-secondary hover:text-blue-700 transition-colors">Forgot your password?</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button type="submit" class="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-lg shadow-md text-sm font-semibold text-white bg-primary hover:bg-slate-800 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                            Sign in
+                        </button>
+                    </div>
+                    
+                    {% if form.errors %}
+                        <p class="text-red-500 text-xs font-medium mt-4 text-center bg-red-50 p-2 rounded-md">Your username and password didn't match. Please try again.</p>
+                    {% endif %}
+                </form>
+                
+                <div class="mt-6">
+                    <div class="relative">
+                        <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-slate-300"></div></div>
+                        <div class="relative flex justify-center text-sm"><span class="px-2 bg-FAFAFA text-slate-500">Or continue with</span></div>
+                    </div>
+                    <div class="mt-6 grid grid-cols-2 gap-3">
+                        <div><a href="#" class="w-full inline-flex justify-center py-2 px-4 border border-slate-300 rounded-lg shadow-sm bg-white text-sm font-medium text-slate-500 hover:bg-slate-50 transition-colors"><span class="sr-only">Sign in with Google</span><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg></a></div>
+                        <div><a href="#" class="w-full inline-flex justify-center py-2 px-4 border border-slate-300 rounded-lg shadow-sm bg-white text-sm font-medium text-slate-500 hover:bg-slate-50 transition-colors"><span class="sr-only">Sign in with LinkedIn</span><svg class="w-5 h-5 text-blue-700" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"/></svg></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Right: Image/Graphic -->
+    <div class="hidden lg:block relative w-0 flex-1 bg-slate-900 overflow-hidden">
+        <div class="absolute inset-0 h-full w-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary via-slate-800 to-secondary opacity-90"></div>
+            <!-- Abstract pattern -->
+            <svg class="absolute inset-0 h-full w-full opacity-20" fill="none" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 100 C 20 0 50 0 100 100 Z" fill="url(#grad1)"/><defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:rgb(20,184,166);stop-opacity:1" /><stop offset="100%" style="stop-color:rgb(37,99,235);stop-opacity:1" /></linearGradient></defs></svg>
+        </div>
+        <div class="absolute inset-0 flex items-center justify-center p-12">
+            <blockquote class="text-2xl font-semibold text-white tracking-tight animate-fade-in-up delay-200">
+                "Failure is simply the opportunity to begin again, this time more intelligently."
+                <footer class="mt-4 text-sm text-slate-300 font-medium">Henry Ford</footer>
+            </blockquote>
+        </div>
+    </div>
+</div>
+<style>
+    body { background-color: #FAFAFA !important; }
+</style>
+{% endblock %}

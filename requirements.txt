@@ -1,0 +1,63 @@
+Django
+djangorestframework
+django-cors-headers
+python-dotenv
+Pillow
+python-decouple
+
+# Async & Background Tasks
+celery
+redis
+django-celery-beat
+django-celery-results
+
+# WebSockets & Real-time
+channels
+channels-redis
+daphne
+
+# Caching
+django-redis
+
+# Payments
+stripe
+
+# Search
+elasticsearch
+elasticsearch-dsl
+
+# Forms & UI
+django-crispy-forms
+crispy-bootstrap5
+
+# API & Documentation
+drf-spectacular
+djangorestframework-simplejwt
+django-filter
+
+# Development Tools
+django-extensions
+
+# HTTP & Utilities
+requests
+gunicorn
+whitenoise
+
+# Storage
+django-storages
+boto3
+
+# AI & ML
+openai
+numpy
+
+# SSL & Security
+certifi
+cryptography
+
+# Monitoring & Logging
+sentry-sdk
+
+# Database Drivers (optional - add based on your needs)
+# psycopg2-binary
+# pymongo

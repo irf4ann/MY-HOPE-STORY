@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block title %}Register - My Hope Story{% endblock %}
+
+{% block content %}
+<div class="min-h-[85vh] flex">
+    <!-- Left: Form -->
+    <div class="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
+        <div class="mx-auto w-full max-w-sm lg:w-96 animate-fade-in-up">
+            <div>
+                <h2 class="mt-6 text-3xl font-extrabold text-slate-900 tracking-tight">Create your account</h2>
+                <p class="mt-2 text-sm text-slate-500">
+                    Or <a href="{% url 'login' %}" class="font-medium text-secondary hover:text-blue-700 transition-colors">sign in to existing account</a>
+                </p>
+            </div>
+
+            <div class="mt-8">
+                <form class="space-y-4" method="POST">
+                    {% csrf_token %}
+                    
+                    {% for field in form %}
+                        <div>
+                            <label for="{{ field.id_for_label }}" class="block text-sm font-medium text-slate-700">{{ field.label }}</label>
+                            <div class="mt-1">
+                                {{ field }}
+                            </div>
+                            {% if field.errors %}
+                                <p class="mt-1 text-xs text-red-500 font-medium">{{ field.errors.0 }}</p>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+
+                    <div class="pt-2">
+                        <button type="submit" class="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-lg shadow-md text-sm font-semibold text-white bg-primary hover:bg-slate-800 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                            Register
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Right: Image/Graphic -->
+    <div class="hidden lg:block relative w-0 flex-1 bg-slate-900 overflow-hidden">
+        <div class="absolute inset-0 h-full w-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-tr from-primary via-slate-800 to-accent opacity-90"></div>
+            <!-- Abstract pattern -->
+            <svg class="absolute inset-0 h-full w-full opacity-20" fill="none" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M100 0 C 80 100 50 100 0 0 Z" fill="url(#grad2)"/><defs><linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:rgb(20,184,166);stop-opacity:1" /><stop offset="100%" style="stop-color:rgb(37,99,235);stop-opacity:1" /></linearGradient></defs></svg>
+        </div>
+        <div class="absolute inset-0 flex items-center justify-center p-12">
+            <div class="max-w-md text-center">
+                <div class="animate-fade-in-up delay-200">
+                    <h3 class="text-3xl font-bold text-white tracking-tight mb-4">Join the Ecosystem</h3>
+                    <p class="text-slate-300 font-medium">Connect with mentors, find funding, and turn past failures into your next massive success.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    body { background-color: #FAFAFA !important; }
+    /* Styling for django default form fields */
+    input[type="text"], input[type="password"], input[type="email"], select {
+        width: 100%;
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.5rem;
+        border: 1px solid #CBD5E1;
+        background-color: #ffffff;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, select:focus {
+        outline: none;
+        border-color: #2563EB;
+        box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+    }
+</style>
+{% endblock %}

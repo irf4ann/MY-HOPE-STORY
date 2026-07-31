@@ -1,0 +1,311 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Premium Hero Section -->
+<div class="relative overflow-hidden min-h-[92vh] flex items-center bg-[radial-gradient(circle_at_top_left,_rgba(37,99,235,0.16),_transparent_32%),radial-gradient(circle_at_80%_20%,_rgba(20,184,166,0.16),_transparent_28%),linear-gradient(135deg,#ffffff_0%,#f8fbff_100%)]">
+    <div class="absolute inset-0 z-0">
+        <div class="absolute top-10 left-8 w-72 h-72 bg-secondary/15 rounded-full blur-3xl"></div>
+        <div class="absolute top-20 right-10 w-80 h-80 bg-accent/15 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-8 left-1/3 w-72 h-72 bg-blue-200/30 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-24 pb-20">
+        <div class="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+            <div class="max-w-3xl">
+                <div class="animate-fade-in-up inline-flex items-center px-4 py-2 rounded-full border border-slate-200 bg-white/70 backdrop-blur-sm text-sm font-semibold text-slate-700 shadow-sm mb-8">
+                    <span class="flex h-2 w-2 relative mr-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+                    </span>
+                    The Next-Gen Startup Revival Ecosystem
+                </div>
+                
+                <h1 class="animate-fade-in-up delay-100 text-5xl md:text-6xl lg:text-7xl font-black text-primary tracking-tight leading-[0.95]">
+                    Turn setbacks into
+                    <span class="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-secondary to-accent">lasting momentum.</span>
+                </h1>
+                
+                <p class="animate-fade-in-up delay-200 mt-6 text-lg md:text-xl text-slate-600 max-w-2xl font-medium leading-8">
+                    Document your journey, preserve hard-earned lessons, and connect with mentors, investors, and a trusted community that helps promising startups recover and grow.
+                </p>
+                
+                <div class="animate-fade-in-up delay-300 mt-10 flex flex-col sm:flex-row gap-4">
+                    <a href="{% url 'story_wizard' %}" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-primary to-secondary rounded-full shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                        Share Your Story
+                    </a>
+                    <a href="#ecosystem" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-slate-700 bg-white border border-slate-200 hover:border-slate-300 hover:bg-slate-50 rounded-full shadow-sm transition-all duration-300">
+                        Explore the Ecosystem &rarr;
+                    </a>
+                </div>
+
+                <div class="animate-fade-in-up delay-400 mt-10 flex flex-wrap gap-6 text-sm text-slate-500">
+                    <div class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-full bg-accent"></span> Verified mentorship</div>
+                    <div class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-full bg-secondary"></span> Investor-ready stories</div>
+                    <div class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-full bg-slate-400"></span> Community-led support</div>
+                </div>
+            </div>
+
+            <div class="animate-fade-in-up delay-200 hero-card rounded-[2rem] p-6 sm:p-8 border border-slate-200/80">
+                <div class="rounded-[1.5rem] bg-gradient-to-br from-primary via-slate-900 to-secondary p-7 text-white shadow-2xl">
+                    <p class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-300">Why founders choose us</p>
+                    <h2 class="mt-4 text-2xl font-bold leading-tight">A premium platform for honest storytelling, guided growth, and second chances.</h2>
+                    <div class="mt-8 space-y-4">
+                        <div class="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur">
+                            <p class="font-semibold">Structured post-mortems</p>
+                            <p class="mt-1 text-sm text-slate-300">Turn your journey into a compelling, high-trust narrative.</p>
+                        </div>
+                        <div class="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur">
+                            <p class="font-semibold">Professional connections</p>
+                            <p class="mt-1 text-sm text-slate-300">Meet mentors and investors aligned to your stage and mission.</p>
+                        </div>
+                        <div class="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur">
+                            <p class="font-semibold">Data-backed visibility</p>
+                            <p class="mt-1 text-sm text-slate-300">Surface learnings, traction, and opportunities in one place.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Ecosystem Section -->
+<div id="ecosystem" class="bg-slate-50 py-24 border-y border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-sm font-bold text-secondary uppercase tracking-[0.3em] mb-2">How it works</h2>
+        <h3 class="text-3xl font-extrabold text-primary tracking-tight sm:text-4xl">A refined path from reflection to reinvention</h3>
+        
+        <div class="mt-16 grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+            <!-- Connecting Line for Desktop -->
+            <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-slate-300 to-transparent -z-10 transform -translate-y-1/2"></div>
+            
+            <!-- Step 1 -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 relative group hover:shadow-xl transition-all duration-300">
+                <div class="w-14 h-14 bg-red-100 text-red-500 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 group-hover:scale-110 transition-transform">1</div>
+                <h4 class="text-xl font-bold text-primary mb-2">The Failure</h4>
+                <p class="text-slate-500 text-sm">Entrepreneurs document their authentic journey and analyze core failure reasons.</p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 relative group hover:shadow-xl transition-all duration-300">
+                <div class="w-14 h-14 bg-blue-100 text-secondary rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 group-hover:scale-110 transition-transform">2</div>
+                <h4 class="text-xl font-bold text-primary mb-2">The Guidance</h4>
+                <p class="text-slate-500 text-sm">Verified Mentors provide feedback, strategies, and schedule coaching sessions.</p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 relative group hover:shadow-xl transition-all duration-300">
+                <div class="w-14 h-14 bg-green-100 text-green-500 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 group-hover:scale-110 transition-transform">3</div>
+                <h4 class="text-xl font-bold text-primary mb-2">The Fuel</h4>
+                <p class="text-slate-500 text-sm">Investors and community members fund promising ideas that deserve a second chance.</p>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 relative group hover:shadow-xl transition-all duration-300">
+                <div class="w-14 h-14 bg-accent/20 text-accent rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 group-hover:scale-110 transition-transform">4</div>
+                <h4 class="text-xl font-bold text-primary mb-2">The Revival</h4>
+                <p class="text-slate-500 text-sm">Startups are reborn stronger, wiser, and fully backed by the ecosystem.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Impact Metrics -->
+<div class="bg-white py-16 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
+                <p class="text-4xl font-black text-primary">2.4k+</p>
+                <p class="mt-2 text-sm font-medium text-slate-500">Founders supported</p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
+                <p class="text-4xl font-black text-secondary">89%</p>
+                <p class="mt-2 text-sm font-medium text-slate-500">Reported clearer next steps</p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
+                <p class="text-4xl font-black text-accent">300+</p>
+                <p class="mt-2 text-sm font-medium text-slate-500">Mentor sessions booked</p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
+                <p class="text-4xl font-black text-primary">4.9/5</p>
+                <p class="mt-2 text-sm font-medium text-slate-500">Community satisfaction</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Testimonials -->
+<div class="bg-slate-50 py-24 border-y border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl">
+            <h2 class="text-sm font-bold text-secondary uppercase tracking-[0.3em]">Voices from the community</h2>
+            <h3 class="mt-2 text-3xl font-extrabold text-primary tracking-tight sm:text-4xl">Trusted by founders navigating the next chapter</h3>
+            <p class="mt-4 text-lg text-slate-600">The platform is designed to create clarity, confidence, and momentum after hard lessons.</p>
+        </div>
+
+        <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+                <p class="text-slate-600">“I finally had a place to explain what happened without feeling judged. The guidance felt thoughtful and practical.”</p>
+                <div class="mt-6 flex items-center gap-3">
+                    <div class="h-10 w-10 rounded-full bg-slate-300"></div>
+                    <div>
+                        <p class="font-semibold text-slate-900">Amara Lewis</p>
+                        <p class="text-sm text-slate-500">Founder, Northstar Labs</p>
+                    </div>
+                </div>
+            </div>
+            <div class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+                <p class="text-slate-600">“The structure helped me turn a messy failure into a story investors could understand and respect.”</p>
+                <div class="mt-6 flex items-center gap-3">
+                    <div class="h-10 w-10 rounded-full bg-slate-300"></div>
+                    <div>
+                        <p class="font-semibold text-slate-900">Noah Singh</p>
+                        <p class="text-sm text-slate-500">Founder, FluxGrid</p>
+                    </div>
+                </div>
+            </div>
+            <div class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+                <p class="text-slate-600">“It felt premium, calm, and deeply useful. I connected with mentors who understood our stage immediately.”</p>
+                <div class="mt-6 flex items-center gap-3">
+                    <div class="h-10 w-10 rounded-full bg-slate-300"></div>
+                    <div>
+                        <p class="font-semibold text-slate-900">Elena Brooks</p>
+                        <p class="text-sm text-slate-500">Founder, Harbor AI</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Mentors & Investors -->
+<div class="bg-white py-24 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl">
+            <h2 class="text-sm font-bold text-secondary uppercase tracking-[0.3em]">For mentors & investors</h2>
+            <h3 class="mt-2 text-3xl font-extrabold text-primary tracking-tight sm:text-4xl">Support founders with insight, capital, and meaningful guidance</h3>
+            <p class="mt-4 text-lg text-slate-600">Join a trusted community that values honest storytelling, thoughtful feedback, and smart second chances.</p>
+        </div>
+
+        <div class="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="rounded-[2rem] border border-slate-200 bg-slate-50 p-8 shadow-sm">
+                <div class="inline-flex rounded-full bg-blue-100 px-3 py-1 text-sm font-semibold text-secondary">Mentors</div>
+                <h4 class="mt-5 text-2xl font-bold text-primary">Guide founders through reflection and recovery</h4>
+                <p class="mt-3 text-slate-600">Offer feedback, help shape strategy, and create practical next steps through structured coaching experiences.</p>
+                <a href="#" class="mt-6 inline-flex text-sm font-semibold text-secondary hover:text-blue-700">Become a mentor &rarr;</a>
+            </div>
+            <div class="rounded-[2rem] border border-slate-200 bg-slate-50 p-8 shadow-sm">
+                <div class="inline-flex rounded-full bg-teal-100 px-3 py-1 text-sm font-semibold text-accent">Investors</div>
+                <h4 class="mt-5 text-2xl font-bold text-primary">Discover resilient startups with clear stories</h4>
+                <p class="mt-3 text-slate-600">Explore founder journeys backed by lessons learned, community validation, and thoughtful positioning.</p>
+                <a href="#" class="mt-6 inline-flex text-sm font-semibold text-secondary hover:text-blue-700">Explore investor opportunities &rarr;</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Featured Lessons -->
+<div class="bg-white py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-end mb-12">
+            <div>
+                <h2 class="text-3xl font-extrabold text-primary tracking-tight">Featured lessons</h2>
+                <p class="mt-2 text-slate-500">Learn from recent founder reflections and the strategies that followed.</p>
+            </div>
+            <a href="#" class="hidden sm:inline-block text-sm font-semibold text-secondary hover:text-blue-700">View all stories &rarr;</a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Premium Card 1 -->
+            <a href="#" class="group block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                <div class="h-48 bg-gradient-to-br from-slate-100 to-slate-200 p-6 flex flex-col justify-between">
+                    <div class="flex justify-between items-start">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">EdTech</span>
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-800 text-white">Seeking Mentor</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 group-hover:text-secondary transition-colors">Building too fast without product-market fit</h3>
+                </div>
+                <div class="p-6">
+                    <p class="text-slate-500 text-sm mb-4 line-clamp-3">We scaled our team to 50 people before validating the core product feature. We burned through our Series A cash in 8 months.</p>
+                    <div class="flex items-center justify-between border-t border-slate-100 pt-4">
+                        <div class="flex items-center">
+                            <div class="h-8 w-8 rounded-full bg-slate-300"></div>
+                            <div class="ml-3">
+                                <p class="text-sm font-medium text-slate-900">Sarah Jenkins</p>
+                                <p class="text-xs text-slate-500">Founder, LearnFlow</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Premium Card 2 -->
+            <a href="#" class="group block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                <div class="h-48 bg-gradient-to-br from-teal-50 to-teal-100 p-6 flex flex-col justify-between">
+                    <div class="flex justify-between items-start">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-teal-100 text-teal-800">Green Energy</span>
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Seeking Funding</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 group-hover:text-secondary transition-colors">Underestimating the hardware supply chain</h3>
+                </div>
+                <div class="p-6">
+                    <p class="text-slate-500 text-sm mb-4 line-clamp-3">Hardware is hard. We underestimated the complexities of international shipping and failed to deliver on our Kickstarter promises.</p>
+                    <div class="flex items-center justify-between border-t border-slate-100 pt-4">
+                        <div class="flex items-center">
+                            <div class="h-8 w-8 rounded-full bg-slate-300"></div>
+                            <div class="ml-3">
+                                <p class="text-sm font-medium text-slate-900">David Chen</p>
+                                <p class="text-xs text-slate-500">Founder, EcoVolt</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Premium Card 3 -->
+            <a href="#" class="group block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                <div class="h-48 bg-gradient-to-br from-purple-50 to-purple-100 p-6 flex flex-col justify-between">
+                    <div class="flex justify-between items-start">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800">FinTech</span>
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-600">Archived</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 group-hover:text-secondary transition-colors">The Enterprise Pivot that killed us</h3>
+                </div>
+                <div class="p-6">
+                    <p class="text-slate-500 text-sm mb-4 line-clamp-3">We shifted focus away from our core audience to chase large enterprise clients, losing our early adopters and running out of runway.</p>
+                    <div class="flex items-center justify-between border-t border-slate-100 pt-4">
+                        <div class="flex items-center">
+                            <div class="h-8 w-8 rounded-full bg-slate-300"></div>
+                            <div class="ml-3">
+                                <p class="text-sm font-medium text-slate-900">Marcus Wright</p>
+                                <p class="text-xs text-slate-500">Founder, PaySync</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+
+<!-- Final CTA -->
+<div class="bg-slate-950 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="rounded-[2rem] border border-white/10 bg-gradient-to-br from-slate-900 via-slate-800 to-primary p-8 sm:p-10 lg:p-14 shadow-2xl">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+                <div class="max-w-2xl">
+                    <p class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-300">Join the movement</p>
+                    <h2 class="mt-3 text-3xl sm:text-4xl font-bold text-white">Bring your story into a space built for reflection, guidance, and second chances.</h2>
+                    <p class="mt-4 text-lg text-slate-300">Whether you are a founder, mentor, or investor, this platform helps turn hard lessons into lasting progress.</p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <a href="{% url 'signup' %}" class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-slate-900 bg-white rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">Create your account</a>
+                    <a href="#" class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white border border-white/20 rounded-full hover:bg-white/10 transition-all duration-300">Explore stories</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
