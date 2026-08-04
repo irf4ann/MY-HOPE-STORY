@@ -30,6 +30,10 @@ urlpatterns = [
     path('', home_view, name='home'),
     path('accounts/', include('accounts.urls')),
     path('stories/', include('stories.urls')),
+    path('mentors/', include('mentorship.urls')),
+    path('investors/', include('investors.urls')),
+    path('notifications/', include('notifications.urls')),
+    path('funding/', include('funding.urls')),
     
     # API Authentication
     path('api/v1/auth/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),

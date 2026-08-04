@@ -112,14 +112,15 @@
                     
                     <div class="hidden md:ml-10 md:flex md:space-x-8">
                         <a href="{% url 'home' %}" class="text-slate-600 hover:text-primary px-1 py-2 text-sm font-semibold transition-colors border-b-2 border-transparent hover:border-secondary">Home</a>
-                        <a href="#" class="text-slate-600 hover:text-primary px-1 py-2 text-sm font-semibold transition-colors border-b-2 border-transparent hover:border-secondary">Stories</a>
-                        <a href="#" class="text-slate-600 hover:text-primary px-1 py-2 text-sm font-semibold transition-colors border-b-2 border-transparent hover:border-secondary">Mentors</a>
-                        <a href="#" class="text-slate-600 hover:text-primary px-1 py-2 text-sm font-semibold transition-colors border-b-2 border-transparent hover:border-secondary">Investors</a>
+                        <a href="{% url 'story_wizard' %}" class="text-slate-600 hover:text-primary px-1 py-2 text-sm font-semibold transition-colors border-b-2 border-transparent hover:border-secondary">Stories</a>
+                        <a href="{% url 'mentors' %}" class="text-slate-600 hover:text-primary px-1 py-2 text-sm font-semibold transition-colors border-b-2 border-transparent hover:border-secondary">Mentors</a>
+                        <a href="{% url 'investors' %}" class="text-slate-600 hover:text-primary px-1 py-2 text-sm font-semibold transition-colors border-b-2 border-transparent hover:border-secondary">Investors</a>
                     </div>
                 </div>
                 
                 <div class="hidden md:flex items-center space-x-4">
                     {% if user.is_authenticated %}
+                        <a href="{% url 'notifications_inbox' %}" class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors">Notifications</a>
                         <a href="{% url 'profile' %}" class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors">Profile</a>
                         <form method="post" action="{% url 'logout' %}" class="inline">
                             {% csrf_token %}
@@ -142,10 +143,11 @@
         <div id="mobile-menu" class="hidden border-t border-slate-200/70 bg-white/95 md:hidden">
             <div class="max-w-7xl mx-auto px-4 py-4 space-y-3">
                 <a href="{% url 'home' %}" class="block rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-primary">Home</a>
-                <a href="#" class="block rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-primary">Stories</a>
-                <a href="#" class="block rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-primary">Mentors</a>
-                <a href="#" class="block rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-primary">Investors</a>
+                <a href="{% url 'story_wizard' %}" class="block rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-primary">Stories</a>
+                <a href="{% url 'mentors' %}" class="block rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-primary">Mentors</a>
+                <a href="{% url 'investors' %}" class="block rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-primary">Investors</a>
                 {% if user.is_authenticated %}
+                    <a href="{% url 'notifications_inbox' %}" class="block rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-primary">Notifications</a>
                     <a href="{% url 'profile' %}" class="block rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-primary">Profile</a>
                     <form method="post" action="{% url 'logout' %}">
                         {% csrf_token %}
@@ -181,9 +183,9 @@
                 <div>
                     <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Explore</h3>
                     <ul class="mt-4 space-y-3 text-sm text-slate-600">
-                        <li><a href="#" class="hover:text-primary transition-colors">Stories</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">Mentors</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">Investors</a></li>
+                        <li><a href="{% url 'story_wizard' %}" class="hover:text-primary transition-colors">Stories</a></li>
+                        <li><a href="{% url 'mentors' %}" class="hover:text-primary transition-colors">Mentors</a></li>
+                        <li><a href="{% url 'investors' %}" class="hover:text-primary transition-colors">Investors</a></li>
                     </ul>
                 </div>
                 <div>
