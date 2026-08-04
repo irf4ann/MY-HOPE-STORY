@@ -1,0 +1,60 @@
+services:
+  - type: web
+    name: myhopestory
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --noinput"
+    startCommand: "gunicorn myhopestory.wsgi:application"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: False
+      - key: DATABASE_URL
+        fromDatabase:
+          name: myhopestory-db
+          property: connectionString
+      - key: ALLOWED_HOSTS
+        value: myhopestory.onrender.com
+      - key: CSRF_TRUSTED_ORIGINS
+        value: https://myhopestory.onrender.com
+      - key: REDIS_URL
+        value: redis://redistogo:6379/0
+      - key: CELERY_BROKER_URL
+        value: redis://redistogo:6379/0
+      - key: CELERY_RESULT_BACKEND
+        value: redis://redistogo:6379/0
+
+  - type: redis
+    name: redistogo
+    plan: free
+
+  - type: pserv
+    name: myhopestory-celery
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "celery -A myhopestory worker -l info"
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: False
+      - key: DATABASE_URL
+        fromDatabase:
+          name: myhopestory-db
+          property: connectionString
+      - key: REDIS_URL
+        value: redis://redistogo:6379/0
+      - key: CELERY_BROKER_URL
+        value: redis://redistogo:6379/0
+      - key: CELERY_RESULT_BACKEND
+        value: redis://redistogo:6379/0
+
+databases:
+  - name: myhopestory-db
+    plan: free
+    databaseName: myhopestory
+    user: myhopestory

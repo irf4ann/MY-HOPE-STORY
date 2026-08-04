@@ -58,6 +58,9 @@ cryptography
 # Monitoring & Logging
 sentry-sdk
 
-# Database Drivers (optional - add based on your needs)
-# psycopg2-binary
+# Database Drivers
+psycopg2-binary
 # pymongo
+
+# Deployment helpers
+dj-database-url

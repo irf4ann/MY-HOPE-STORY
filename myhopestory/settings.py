@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 from pathlib import Path
 import os
 from datetime import timedelta
+import dj_database_url
 
 try:
     from decouple import config as decouple_config
@@ -60,9 +61,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY', 'django-insecure-g2jmhqo=6yqs044v3dqo8%p0pfi592juk5yrvmppz&gb))78t^')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', True)
+DEBUG = config('DEBUG', False, cast=bool)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+ALLOWED_HOSTS = config(
+    'ALLOWED_HOSTS',
+    'localhost,127.0.0.1'
+).split(',')
 
 
 # Application definition
@@ -141,17 +145,27 @@ WSGI_APPLICATION = 'myhopestory.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': config('DB_ENGINE', 'django.db.backends.sqlite3'),
-        'NAME': config('DB_NAME', BASE_DIR / 'db.sqlite3'),
-        'USER': config('DB_USER', ''),
-        'PASSWORD': config('DB_PASSWORD', ''),
-        'HOST': config('DB_HOST', ''),
-        'PORT': config('DB_PORT', ''),
-        'ATOMIC_REQUESTS': True,
+DATABASE_URL = config('DATABASE_URL', '')
+if DATABASE_URL:
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=DATABASE_URL,
+            conn_max_age=600,
+            ssl_require=False,
+        )
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': config('DB_ENGINE', 'django.db.backends.sqlite3'),
+            'NAME': config('DB_NAME', BASE_DIR / 'db.sqlite3'),
+            'USER': config('DB_USER', ''),
+            'PASSWORD': config('DB_PASSWORD', ''),
+            'HOST': config('DB_HOST', ''),
+            'PORT': config('DB_PORT', ''),
+            'ATOMIC_REQUESTS': True,
+        }
+    }
 
 
 # Password validation
@@ -526,6 +540,11 @@ SESSION_COOKIE_HTTPONLY = True
 SECURE_HSTS_SECONDS = 31536000
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+CSRF_TRUSTED_ORIGINS = config(
+    'CSRF_TRUSTED_ORIGINS',
+    'https://localhost,https://127.0.0.1'
+).split(',')
 
 X_FRAME_OPTIONS = 'DENY'
 
