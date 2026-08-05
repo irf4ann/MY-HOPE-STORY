@@ -3,11 +3,11 @@ services:
     name: myhopestory
     env: python
     plan: free
-    buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --noinput"
-    startCommand: "gunicorn myhopestory.wsgi:application"
+    buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput
+    startCommand: gunicorn myhopestory.wsgi:application --bind 0.0.0.0:$PORT
     envVars:
       - key: PYTHON_VERSION
-        value: 3.11.9
+        value: 3.12.9
       - key: SECRET_KEY
         generateValue: true
       - key: DEBUG
@@ -35,8 +35,8 @@ services:
     name: myhopestory-celery
     env: python
     plan: free
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "celery -A myhopestory worker -l info"
+    buildCommand: pip install -r requirements.txt
+    startCommand: celery -A myhopestory worker -l info
     envVars:
       - key: SECRET_KEY
         generateValue: true
