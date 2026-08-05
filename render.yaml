@@ -17,9 +17,9 @@ services:
           name: myhopestory-db
           property: connectionString
       - key: ALLOWED_HOSTS
-        value: myhopestory.onrender.com
+        value: my-hope-story-4.onrender.com
       - key: CSRF_TRUSTED_ORIGINS
-        value: https://myhopestory.onrender.com
+        value: https://my-hope-story-4.onrender.com
       - key: REDIS_URL
         value: redis://redistogo:6379/0
       - key: CELERY_BROKER_URL
