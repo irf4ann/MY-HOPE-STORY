@@ -22,11 +22,21 @@ services:
         value: https://*.onrender.com
 
       - key: REDIS_URL
-        value: redis://redistogo:6379/0
+        fromService:
+          type: redis
+          name: redistogo
+          property: connectionString
       - key: CELERY_BROKER_URL
-        value: redis://redistogo:6379/0
+        fromService:
+          type: redis
+          name: redistogo
+          property: connectionString
       - key: CELERY_RESULT_BACKEND
-        value: redis://redistogo:6379/0
+        fromService:
+          type: redis
+          name: redistogo
+          property: connectionString
+
 
   - type: redis
     name: redistogo
@@ -48,11 +58,21 @@ services:
           name: myhopestory-db
           property: connectionString
       - key: REDIS_URL
-        value: redis://redistogo:6379/0
+        fromService:
+          type: redis
+          name: redistogo
+          property: connectionString
       - key: CELERY_BROKER_URL
-        value: redis://redistogo:6379/0
+        fromService:
+          type: redis
+          name: redistogo
+          property: connectionString
       - key: CELERY_RESULT_BACKEND
-        value: redis://redistogo:6379/0
+        fromService:
+          type: redis
+          name: redistogo
+          property: connectionString
+
 
 databases:
   - name: myhopestory-db

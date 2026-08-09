@@ -353,7 +353,7 @@ else:
 # Caching Configuration
 # ===========================
 
-# Use Redis cache in production (set REDIS_URL env var), local-memory cache otherwise
+# Use Redis cache in production (if REDIS_URL env var is present), local-memory cache otherwise
 if _REDIS_URL:
     CACHES = {
         'default': {
@@ -361,6 +361,7 @@ if _REDIS_URL:
             'LOCATION': _REDIS_URL,
             'OPTIONS': {
                 'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+                'IGNORE_EXCEPTIONS': True,
                 'PARSER_KWARGS': {'encoding': 'utf8'},
                 'SOCKET_CONNECT_TIMEOUT': 5,
                 'SOCKET_TIMEOUT': 5,
@@ -371,17 +372,18 @@ if _REDIS_URL:
             'TIMEOUT': 300,
         }
     }
-    SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
-    SESSION_CACHE_ALIAS = 'default'
 else:
-    # Development fallback: local-memory cache + database sessions (no Redis needed)
+    # Development fallback: local-memory cache
     CACHES = {
         'default': {
             'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
             'LOCATION': 'myhopestory-dev',
         }
     }
-    SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
+# Always use database sessions for guaranteed login reliability
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
 
 # ===========================
 # Elasticsearch Configuration
