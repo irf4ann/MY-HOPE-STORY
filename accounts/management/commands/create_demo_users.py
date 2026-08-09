@@ -31,13 +31,18 @@ class Command(BaseCommand):
                     'role': role,
                 },
             )
+            if role == 'admin':
+                user.is_staff = True
+                user.is_superuser = True
             if created:
                 user.set_password('testpass123')
                 user.save()
                 self.stdout.write(self.style.SUCCESS(f'Created user: {username} ({role})'))
             else:
+                user.save()
                 self.stdout.write(f'User {username} already exists')
             users[username] = user
+
 
         category, _ = Category.objects.get_or_create(
             slug='ai',
