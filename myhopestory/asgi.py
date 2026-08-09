@@ -2,24 +2,27 @@
 ASGI config for myhopestory project with Django Channels support.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/6.0/howto/deployment/asgi/
 """
 
 import os
-
 from django.core.asgi import get_asgi_application
-from channels.routing import ProtocolTypeRouter, URLRouter
-from channels.auth import AuthMiddlewareStack
-from channels.security.websocket import AllowedHostsOriginValidator
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'myhopestory.settings')
 
 # Get Django ASGI application
 django_asgi_app = get_asgi_application()
 
-# Import routing after Django setup
+# Run automatic database migrations & seed users on server start
+try:
+    from django.core.management import call_command
+    call_command('migrate', interactive=False)
+    call_command('create_demo_users')
+except Exception as e:
+    print(f"Startup migration status: {e}")
+
+from channels.routing import ProtocolTypeRouter, URLRouter
+from channels.auth import AuthMiddlewareStack
+from channels.security.websocket import AllowedHostsOriginValidator
 from myhopestory.routing import websocket_urlpatterns
 
 # ASGI application with Channels support
